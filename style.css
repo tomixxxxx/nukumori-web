@@ -984,20 +984,7 @@ img {
     line-height: 1.4;
 }
 
-.rich-subtitle .char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    /* Rotation removed for cleaner look, simpler float-up */
-    white-space: pre;
-    /* Preserve spaces */
-}
 
-.is-active .rich-subtitle .char {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .rich-subtitle::before {
     content: '';
