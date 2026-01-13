@@ -599,6 +599,43 @@ img {
     border-bottom: 1px solid var(--alternate-bg);
 }
 
+/* Usage Rules */
+.usage-rules {
+    list-style: none;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+}
+
+.usage-rules li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.usage-rules li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+.usage-rules li:last-child {
+    margin-bottom: 0;
+}
+
+.usage-rules strong {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 5px;
+    background: linear-gradient(transparent 60%, var(--alternate-bg) 60%);
+}
+
 /* Badge */
 .badge {
     display: inline-block;
@@ -651,6 +688,31 @@ img {
     margin-top: 10px;
     color: #666;
     text-align: right;
+}
+
+/* Special Layout for Stretch Service */
+.service-meta.special-layout {
+    display: flex;
+    /* Ensure flex behavior */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally (for entire block) */
+    gap: 15px;
+}
+
+.service-meta.special-layout .meta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-meta.special-layout .note {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: 2px;
 }
 
 /* Hours Section */
@@ -774,6 +836,26 @@ img {
     color: #666;
 }
 
+/* Special Layout for Stretch Service */
+.service-meta.special-layout {
+    align-items: center;
+}
+
+.service-meta.special-layout .meta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.service-meta.special-layout .note {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: -5px;
+    /* Adjust spacing */
+}
+
 /* 矢印共通スタイル（下向き） */
 .step-arrow {
     position: relative;
@@ -885,18 +967,36 @@ img {
     margin-bottom: 80px;
 }
 
+
+
+
+
+/* Rich Subtitle Animation */
 .rich-subtitle {
     font-size: 2rem;
-    color: transparent;
-    /* Text initially invisible */
+    color: var(--primary-color);
     margin-bottom: 30px;
     position: relative;
     padding-left: 25px;
     display: inline-block;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
+    /* Tighter letter spacing for better reading */
     line-height: 1.4;
-    transition: color 1.5s ease 0.8s, transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: translateX(-10px);
+}
+
+.rich-subtitle .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    /* Rotation removed for cleaner look, simpler float-up */
+    white-space: pre;
+    /* Preserve spaces */
+}
+
+.is-active .rich-subtitle .char {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .rich-subtitle::before {
@@ -904,38 +1004,36 @@ img {
     position: absolute;
     left: 0;
     top: 0;
-    width: 3px;
+    width: 4px;
     height: 100%;
     background: var(--accent-color);
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.rich-subtitle::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 25px;
-    width: 0;
-    height: 1px;
-    background: var(--accent-color);
-    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
-    opacity: 0.6;
-}
-
-/* Activation when parent .therapy-feature (fade-in-up) gets is-active */
-.is-active .rich-subtitle {
-    color: var(--primary-color);
-    transform: translateX(0);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .is-active .rich-subtitle::before {
     transform: scaleY(1);
 }
 
-.is-active .rich-subtitle::after {
-    width: 100%;
+/* Instagram Button Gradient */
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 39, 67, 0.5);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    /* Maintain gradient */
+}
+
+.instagram-btn .instagram-icon {
+    fill: white;
 }
 
 .fade-in-up {
@@ -990,6 +1088,20 @@ img {
 
     .service-step {
         padding: 20px;
+    }
+
+    /* Break the note on mobile for optional step */
+    .service-step.optional .service-meta {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-step.optional .service-meta .note {
+        width: 100%;
+        margin-top: 5px;
+        color: var(--accent-color);
+        /* Highlight color requested */
+        font-weight: bold;
     }
 }
 

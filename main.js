@@ -39,3 +39,39 @@ if (mobileMenuBtn) {
         // Add mobile menu logic here
     });
 }
+// Rich subtitle animation - split text
+document.addEventListener('DOMContentLoaded', () => {
+    const subtitles = document.querySelectorAll('.rich-subtitle');
+
+    subtitles.forEach(subtitle => {
+        const textNodes = [];
+        // Extract text nodes and BRs
+        subtitle.childNodes.forEach(node => {
+            if (node.nodeType === 3) { // Text node
+                const text = node.textContent.trim();
+                // Only process non-empty text
+                if (text) {
+                    const chars = text.split('').map(char => `<span class="char">${char}</span>`).join('');
+                    const tempSpan = document.createElement('span');
+                    tempSpan.innerHTML = chars;
+                    // Move children to a fragment to insert
+                    while (tempSpan.firstChild) textNodes.push(tempSpan.firstChild);
+                }
+            } else if (node.tagName === 'BR') {
+                textNodes.push(document.createElement('br'));
+            }
+        });
+
+        // Clear and append new nodes
+        subtitle.innerHTML = '';
+        let delayIndex = 0;
+        textNodes.forEach(node => {
+            subtitle.appendChild(node);
+            if (node.classList && node.classList.contains('char')) {
+                // Set custom property or style for delay
+                node.style.transitionDelay = `${0.8 + (delayIndex * 0.08)}s`; // Start after main slide-in (0.8s)
+                delayIndex++;
+            }
+        });
+    });
+});
