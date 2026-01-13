@@ -1,12 +1,14 @@
 // Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    const instaBtn = document.querySelector('.floating-insta');
+
+    if (window.scrollY > 100) {
+        if (header) header.classList.add('scrolled');
+        if (instaBtn) instaBtn.classList.add('is-visible');
+    } else {
+        if (header) header.classList.remove('scrolled');
+        if (instaBtn) instaBtn.classList.remove('is-visible');
     }
 });
 
@@ -25,7 +27,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach(element => {
+document.querySelectorAll('.fade-in, .fade-in-up').forEach(element => {
     observer.observe(element);
 });
 

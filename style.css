@@ -75,8 +75,11 @@ img {
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
+    padding: 20px 0;
     transition: 0.5s;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.2);
+    /* Slightly visible header at top */
+    backdrop-filter: blur(5px);
 }
 
 .header.scrolled {
@@ -355,6 +358,10 @@ img {
     margin-top: 5px;
 }
 
+.info-item.highlight .value {
+    color: var(--accent-color);
+}
+
 .btn {
     display: inline-block;
     padding: 15px 40px;
@@ -431,6 +438,14 @@ img {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding-bottom: 30px;
+    /* Add padding to container */
+}
+
+.access-map iframe {
+    margin-bottom: 20px;
+    /* Space between map and button */
 }
 
 /* Footer */
@@ -543,5 +558,556 @@ img {
     .btn {
         padding: 12px 30px;
         font-size: 0.9rem;
+    }
+}
+
+/* Menu & Price Section */
+.menu-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-block {
+    margin-bottom: 60px;
+}
+
+.menu-block h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-table th,
+.price-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--alternate-bg);
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+/* Make first column look like header */
+.price-table td:first-child {
+    background: var(--alternate-bg);
+    color: var(--primary-color);
+    font-weight: 500;
+    white-space: nowrap;
+    width: 20%;
+}
+
+.price-table th {
+    background: var(--alternate-bg);
+    color: var(--primary-color);
+    font-weight: 500;
+    white-space: nowrap;
+    width: 20%;
+    /* Distribute width equally */
+}
+
+.price-table th:last-child {
+    width: 20%;
+    /* Ensure last column isn't too wide */
+}
+
+.price-table .note {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+
+.price-table td {
+    font-weight: 500;
+}
+
+.price-note {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #666;
+    text-align: right;
+}
+
+/* Hours Section */
+.hours-content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.hours-block {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hours-block h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.hours-table {
+    width: 100%;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+}
+
+.hours-table th,
+.hours-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px dotted var(--alternate-bg);
+}
+
+.hours-table th {
+    white-space: nowrap;
+    color: var(--primary-color);
+    width: 30%;
+}
+
+.hours-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Service Flow (Existing) */
+.service-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    /* Increased for side-by-side */
+    margin: 0 auto;
+}
+
+.service-step {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--alternate-bg);
+    width: 100%;
+    position: relative;
+    text-align: center;
+    flex: 1;
+    /* Match height */
+}
+
+.service-step.optional {
+    border: 2px dashed var(--accent-color);
+    background: #fffafa;
+}
+
+.service-step h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.service-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--alternate-bg);
+    font-weight: bold;
+}
+
+.service-meta .time {
+    font-size: 1.2rem;
+    color: #555;
+    background: #eee;
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+
+.service-meta .price {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.service-meta .price-highlight {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.service-meta .note {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #666;
+}
+
+/* 矢印共通スタイル（下向き） */
+.step-arrow {
+    position: relative;
+    background: var(--alternate-bg);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 15px 0;
+    display: inline-block;
+}
+
+.step-arrow::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: var(--alternate-bg) transparent transparent transparent;
+}
+
+.workshop-note {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Workshop Info stacked layout */
+.workshop-info {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Floating Instagram Icon */
+.floating-insta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+    /* 初期状態は非表示 */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.4s, transform 0.4s, box-shadow 0.3s;
+    color: white;
+}
+
+.floating-insta.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.floating-insta:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.floating-insta svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .floating-insta {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-insta svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Therapy Rich Subtitle */
+.therapy-intro {
+    margin-bottom: 60px;
+    font-size: 1.1rem;
+    line-height: 2.2;
+    text-align: justify;
+}
+
+.therapy-feature {
+    margin-bottom: 80px;
+}
+
+.rich-subtitle {
+    font-size: 2rem;
+    color: transparent;
+    /* Text initially invisible */
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 25px;
+    display: inline-block;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    transition: color 1.5s ease 0.8s, transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(-10px);
+}
+
+.rich-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rich-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 25px;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+    opacity: 0.6;
+}
+
+/* Activation when parent .therapy-feature (fade-in-up) gets is-active */
+.is-active .rich-subtitle {
+    color: var(--primary-color);
+    transform: translateX(0);
+}
+
+.is-active .rich-subtitle::before {
+    transform: scaleY(1);
+}
+
+.is-active .rich-subtitle::after {
+    width: 100%;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in-up.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-200 {
+    transition-delay: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .rich-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Map Link */
+.map-link-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 30px;
+    /* Added bottom margin */
+    text-align: center;
+    background: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.map-link-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .menu-block h3 {
+        font-size: 1.3rem;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+
+    .service-step {
+        padding: 20px;
+    }
+}
+
+/* Menu & Price Section */
+.menu-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-block {
+    margin-bottom: 60px;
+}
+
+.menu-block h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-table th,
+.price-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--alternate-bg);
+}
+
+.price-table th {
+    background: var(--alternate-bg);
+    color: var(--primary-color);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.price-table .note {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.price-table td {
+    font-weight: 500;
+}
+
+.price-note {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #666;
+    text-align: right;
+}
+
+.service-list {
+    display: grid;
+    gap: 30px;
+}
+
+.service-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--alternate-bg);
+}
+
+.service-item h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.workshop-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Map Link */
+.map-link-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
+    text-align: center;
+    background: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.map-link-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .menu-block h3 {
+        font-size: 1.3rem;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+
+    .service-item {
+        padding: 20px;
     }
 }
