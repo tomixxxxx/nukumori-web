@@ -1073,6 +1073,15 @@ img {
         font-size: 0.9rem;
     }
 
+    .usage-rules {
+        padding: 15px;
+    }
+
+    .usage-rules strong {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
     .service-step {
         padding: 20px;
     }
