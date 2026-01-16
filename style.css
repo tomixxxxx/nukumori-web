@@ -537,7 +537,9 @@ img {
     }
 
     .workshop-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
     }
 
     .workshop-info {
@@ -634,6 +636,13 @@ img {
     display: inline-block;
     margin-top: 5px;
     background: linear-gradient(transparent 60%, var(--alternate-bg) 60%);
+}
+
+.usage-rules .note {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
 }
 
 /* Badge */
@@ -1041,6 +1050,8 @@ img {
 @media (max-width: 768px) {
     .rich-subtitle {
         font-size: 1.5rem;
+        display: block;
+        text-align: left;
     }
 }
 
@@ -1099,6 +1110,27 @@ img {
         /* Highlight color requested */
         font-weight: bold;
     }
+
+    /* 改行設定の改善 */
+    .about-text,
+    .therapy-intro,
+    .therapy-feature p,
+    .dagashi-content p,
+    .workshop-card p,
+    .menu-description,
+    .service-step p,
+    .hours-note {
+        text-align: justify;
+        text-justify: inter-ideograph;
+        letter-spacing: -0.03em;
+        /* 文字間を僅かに詰めて改行を防ぐ */
+        text-wrap: pretty;
+        /* 最近のブラウザ向けにオーファン防止 */
+        word-break: break-all;
+        /* 必要に応じて単語の途中でも改行させる（日本語向け） */
+    }
+
+}
 }
 
 /* Menu & Price Section */
@@ -1217,5 +1249,9 @@ img {
 
     .service-item {
         padding: 20px;
+    }
+
+    .price-note {
+        text-align: left;
     }
 }
