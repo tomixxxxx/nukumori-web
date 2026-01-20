@@ -67,6 +67,12 @@ img {
     padding: 0 20px;
 }
 
+
+/* Utility */
+.mobile-br {
+    display: none;
+}
+
 /* Header */
 .header {
     position: fixed;
@@ -578,7 +584,6 @@ img {
     .workshop-card h3 {
         font-size: 1.4rem;
         letter-spacing: -0.05em;
-        text-wrap: balance;
     }
 
     .workshop-info {
@@ -619,6 +624,10 @@ img {
     .table-badge {
         font-size: 0.55rem;
         letter-spacing: -0.05em;
+    }
+
+    .mobile-br {
+        display: inline;
     }
 }
 
