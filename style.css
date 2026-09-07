@@ -621,11 +621,6 @@ img {
         gap: 6px;
     }
 
-    .table-badge {
-        font-size: 0.55rem;
-        letter-spacing: -0.05em;
-    }
-
     .mobile-br {
         display: inline;
     }
@@ -760,38 +755,31 @@ img {
 }
 
 .price-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     font-size: 0.9rem;
     margin-top: 10px;
-    color: #666;
-    text-align: right;
+    padding: 10px 14px;
+    border-top: 1px solid #e8c9bd;
+    border-bottom: 1px solid #e8c9bd;
+    border-radius: 4px;
+    background: #fff7f3;
+    color: var(--primary-color);
+    text-align: left;
+    font-weight: 500;
 }
 
-/* Gray out Male Column (3rd column) */
-.price-table th:nth-child(3),
-.price-table td:nth-child(3) {
-    background-color: #f0f0f0;
-    color: #aaa;
-}
-
-.price-table th:nth-child(3) {
-    position: relative;
-    vertical-align: bottom;
-    padding-top: 35px;
-}
-
-.table-badge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #999;
+.price-note::before {
+    content: 'ご案内';
+    flex: 0 0 auto;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: var(--accent-color);
     color: #fff;
-    font-size: 0.7rem;
-    padding: 4px 0;
-    text-align: center;
-    font-weight: normal;
-    line-height: 1.2;
-    white-space: nowrap;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 /* Special Layout for Stretch Service */
