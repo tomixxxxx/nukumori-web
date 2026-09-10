@@ -782,6 +782,33 @@ img {
     line-height: 1.5;
 }
 
+.price-table th:nth-child(3) {
+    position: relative;
+    vertical-align: bottom;
+    padding-top: 35px;
+}
+
+.table-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #999;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 0;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.price-table th:nth-child(3),
+.price-table td:nth-child(3) {
+    background-color: #f0f0f0;
+    color: #aaa;
+}
+
 /* Special Layout for Stretch Service */
 .service-meta.special-layout {
     display: flex;
@@ -1157,6 +1184,11 @@ img {
 }
 
 @media (max-width: 768px) {
+    .table-badge {
+        font-size: 0.55rem;
+        letter-spacing: -0.05em;
+    }
+
     .menu-block h3 {
         font-size: 1.3rem;
     }
